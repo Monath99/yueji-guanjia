@@ -30,8 +30,11 @@ body.yj-para-mode #chat .mes_text > * {
   transition: background 0.12s ease;
 }
 
-body.yj-para-mode #chat .mes_text > *:hover {
-  background: rgba(130, 130, 140, 0.14);
+/* 只在有真正指针的设备上给悬停反馈，触屏上不会出现悬停粘住。 */
+@media (hover: hover) and (pointer: fine) {
+  body.yj-para-mode #chat .mes_text > *:hover {
+    background: rgba(130, 130, 140, 0.14);
+  }
 }
 
 body.yj-para-mode #chat .mes_text > .yj-para-picked {
