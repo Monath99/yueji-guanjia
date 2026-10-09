@@ -12,3 +12,42 @@
   z-index: 2147483000;
   pointer-events: none;
 }
+
+/*
+ * 挑段落模式。
+ * 只加 class，不往楼层里插任何节点，避免被酒馆的重新渲染冲掉。
+ * 用 ::before 做「已选」角标；CSS 生成的内容不会进 textContent，不影响取到的正文。
+ */
+
+body.yj-para-mode #chat .mes_text {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body.yj-para-mode #chat .mes_text > * {
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+body.yj-para-mode #chat .mes_text > *:hover {
+  background: rgba(130, 130, 140, 0.14);
+}
+
+body.yj-para-mode #chat .mes_text > .yj-para-picked {
+  background: rgba(130, 130, 140, 0.2);
+  box-shadow: inset 3px 0 0 currentColor;
+}
+
+body.yj-para-mode #chat .mes_text > .yj-para-picked::before {
+  content: '已选';
+  display: inline-block;
+  margin-right: 6px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #17171a;
+  color: #ffffff;
+  font-size: 11px;
+  line-height: 18px;
+  vertical-align: 2px;
+}
