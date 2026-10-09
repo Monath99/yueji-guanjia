@@ -1,0 +1,11 @@
+/*
+ * 月季管家的页面级样式。
+ * 只在酒馆主页面生效的规则放这里；面板内部的样式全部在 Shadow DOM 内，不污染酒馆界面。
+ */
+
+#yueji-guanjia-host {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+}
